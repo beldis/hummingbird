@@ -114,7 +114,7 @@ public struct HBCORSMiddleware: HBMiddleware {
                 var response = response
                 response.headers.add(name: "access-control-allow-origin", value: self.allowOrigin.value(for: request) ?? "")
                 if self.allowCredentials {
-                    headers.add(name: "access-control-allow-credentials", value: "true")
+                    response.headers.add(name: "access-control-allow-credentials", value: "true")
                 }
                 if case .originBased = self.allowOrigin {
                     response.headers.add(name: "vary", value: "Origin")
